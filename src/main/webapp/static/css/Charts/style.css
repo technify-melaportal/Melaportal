@@ -1,0 +1,234 @@
+/* 
+///////////////////////////////////////////////////////////////////
+Copyright (c) OpCenter LLC All Rights Reserved
+Created On : 
+Created by : 
+//////////////////////////////////////////////////////////////////
+*/
+
+/*********INDEX PAGE**********/
+
+.main_body
+				{
+				 background:url(/static/ChartImages/MainBG.jpg) no-repeat center center fixed #000;
+				 background-attachment: fixed;
+				 -webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			     background-size: cover;
+			     background-attachment:fixed;
+				 xmargin-top: 0px;
+				 display:block;
+		 		 position: fixed; 
+				 width: 100%; 
+				}
+
+.main_table
+				{
+				 width:100%;
+				 height:355px;
+/* 				 border:5px; */
+				 margin-top: -3%;
+				 
+				}
+.main_table_td
+				{
+				width:90%;
+				height:87px;
+				colspan:2px;
+				border-width:5px;
+/* 				border: dotted; */
+/* 				border-color: lime; */
+				}
+				
+.iframe 		{
+				height: 460px;
+				width:97%;
+				margin-top:-5%;
+ 				display: block;
+ 				border: none;
+ 				position: fixed;
+/*  			 	border: 1; */
+/*  			 	border-color: lime; */
+				}
+.manu_bar2
+				{
+				margin-left: -30px;
+				position: fixed;
+				left: 60px;
+				
+				}
+.manu_bar3
+				{
+				margin-left: -30px;
+				position: fixed;
+				left: 60px;
+				visibility: visible;
+				}
+				
+ .menu_button1
+ 				{            
+           		 background: url(/static/ChartImages/BlueButton.png) no-repeat;
+           		 font-family: "Times New Roman", Times, serif;
+           		 font-size:medium;
+           		 background-color:white;
+           		 cursor:pointer;
+           		 line-height: 1.8em;
+  				 padding: 0 2em;      
+				}
+.menu_button2
+ 				{  
+           		 background: url(/static/ChartImages/OrangeButton.png) no-repeat;
+           		 font-family: "Times New Roman", Times, serif;
+           		 font-size:medium;
+           		 background-color:white;
+           		 cursor:pointer;
+           		 line-height: 1.8em;
+  				 padding: 0 2em;
+  				  
+ 				}    
+.menu_button3
+ 				{            
+           		 background: url(/static/ChartImages/WhiteButton.png) no-repeat;
+           		 font-family: "Times New Roman", Times, serif;
+           		 font-size:medium;
+           		 background-color:white;
+           		 cursor:pointer;
+           		 line-height: 1.8em;
+  				 padding: 0 2em;      
+				}
+.menu_button1:focus
+ 				{            
+           		 background: url(/static/ChartImages/GreenButton.png) no-repeat;
+           		 background-color:white;   
+				}
+.menu_button2:focus
+ 				{            
+           		 background: url(/static/ChartImages/GreenButton.png) no-repeat;
+           		 background-color:white;  
+				}
+.menu_button3:focus
+ 				{            
+           		 background: url(/static/ChartImages/GreenButton.png) no-repeat;
+           		 background-color:white;
+				}
+.ul1 
+				{
+				background-attachment:fixed;
+				 display: inline;
+				 list-style-type: none;
+			     position:static;
+				 padding: 0px ;
+				 margin-top:20px;
+				 float: left;
+				 left:-10px;
+				 z-index: 100;
+				}
+.li1 
+ 				 {
+ 				 background-attachment:fixed;
+ 				display: inline;
+				list-style-type: none;
+			    position:relative;
+				padding: 0px ;
+				margin: 0;
+				float: left;
+				left:-20px;
+				 z-index: 100;
+				 }
+.li2
+ 				{
+ 				background-attachment:fixed;
+ 				 display: inline;
+				 list-style-type: none;
+			     position:relative;
+				 padding: 0px ;
+				 margin: 0;
+				 float: left;
+				 left:-20px;
+				 z-index: 100;
+				}
+.company_name
+				{
+				margin-left: 3%;
+				color: white;
+				font-family: "Times New Roman", Times, serif;
+           		font-size: large;
+				}				
+.user_name
+				{
+				margin-left: 42%;
+				margin-top: -38px;
+				font-family: "Times New Roman", Times, serif;
+           		font-size: large;
+				color: white;
+				}
+		/********DATE SEARCH********/		
+				
+ .date_search
+				{
+				 width:55%;
+				 margin-left:30%;
+				 margin-top: 2%; 
+				 height:40px;
+				 border-radius: 5px; 
+				 background-color:#FFCE85;
+				 font-family: "Times New Roman", Times, serif;
+		 		 font-size: medium;
+ 				 border:black;
+				} 
+			
+				
+				
+				
+	/*********LOGIN PAGE*********/
+				
+.login_body 	{
+				background: url(/static/ChartImages/HomeBG.png) no-repeat center center fixed;
+				background-attachment: fixed;
+				-webkit-background-size: cover;
+			    -moz-background-size: cover;
+			    -o-background-size: cover;
+			    background-size: cover;
+			    position:fixed;
+				}
+
+.login_table
+				{
+				color:white;
+				font-size: larger;
+				text-align: left;
+				font-family: "Times New Roman", Times, serif;
+				}
+.login_form		{
+				margin-left:34%;
+				margin-top:15%;
+				background-color: DarkBlue;
+				border-radius: 15px;
+				position:fixed; 
+				display: block; 
+				height: 140px;
+				}
+		
+		
+.alert
+				{
+				font-size: larger;
+				color: lime;
+				font-weight: bold;
+				list-style-type: none;
+				margin-left: 28%;
+				margin-top: 12%;
+				display: block;
+				position: absolute;
+				font-family: "Times New Roman", Times, serif;
+				}				
+
+	/*********LOGOUT PAGE*********/
+	
+.logout
+				{
+				margin-left: 96%;
+				position: static;
+				}
+

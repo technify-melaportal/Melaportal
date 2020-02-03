@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Before Login Definition -->
+	 <definition name="base-definition" template="/WEB-INF/pages/layout/defaultLayout.jsp">
+		<put-attribute name="title" value="" />
+		<!-- <put-attribute name="header" value="/WEB-INF/pages/layout/defaultHeader.jsp" /> -->
+		<put-attribute name="menu" value="" />
+		<!-- <put-attribute name="right" value="" /> -->
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/pages/layout/defaultFooter.jsp" />
+	</definition>
+ 
+	<!-- After Login Definition -->
+	<definition name="menu-definition" template="/WEB-INF/pages/layout/defaultLayout.jsp">
+		<put-attribute name="title" value="" />
+		 <put-attribute name="header" value="/WEB-INF/pages/layout/header.jsp" /> 
+		<!-- <put-attribute name="menu" value="/WEB-INF/pages/layout/left-navigation.jsp" /> -->
+	<!-- 	<put-attribute name="right" value="/WEB-INF/pages/layout/right-sidebar.jsp" />  -->
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/pages/layout/defaultFooter.jsp" />
+	</definition>
+	
+	
+	<!-- Login Page -->
+	<definition name="login" extends="base-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/login-page.jsp" />
+	</definition>
+
+	<!-- Home Page -->
+	<definition name="home" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/home.jsp" />
+	</definition>
+	
+	<!-- Profile Page -->
+	<definition name="profile" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/profile.jsp" />
+	</definition>
+		
+	<!-- company Page -->
+   <definition name="company" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/aboutus/company.jsp" />
+	</definition>
+	
+	<!-- cofounder Page -->
+   <definition name="cofounder" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/aboutus/cofounder.jsp" />
+	</definition>
+	
+	<!-- internships Page -->
+   <definition name="internships" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/aboutus/internships.jsp" />
+	</definition>
+	
+	<!-- scorecard Page -->
+   <definition name="scorecard" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/aboutus/scorecard.jsp" />
+	</definition>
+	
+	<!-- search Page -->
+   <definition name="search" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/search.jsp" />
+	</definition>
+	<!-- shortlist Page -->
+   <definition name="shortlist" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/shortlist.jsp" />
+	</definition>
+	<!-- invited Page -->
+   <definition name="invited" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/invited.jsp" />
+	</definition>
+	<!-- applications Page -->
+   <definition name="applications" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/applications.jsp" />
+	</definition>
+<!-- schedule Page -->
+   <definition name="schedule" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/schedule.jsp" />
+	</definition>
+<!-- interviewing Page -->
+   <definition name="interviewing" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/interviewing.jsp" />
+	</definition>
+<!-- decision Page -->
+   <definition name="decision" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/decision.jsp" />
+	</definition>
+<!-- accepted Page -->
+   <definition name="accepted" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/interns/accepted.jsp" />
+	</definition>
+
+</tiles-definitions>

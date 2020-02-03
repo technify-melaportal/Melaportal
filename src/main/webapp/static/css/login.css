@@ -1,0 +1,72 @@
+/* ============== login part start================== */
+
+
+.login-bg-color {
+    background-color: #f6d236;
+}
+
+
+.form-sty-element-login input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #fff;
+    border-bottom: 1px solid #000 !important;
+    border-image: none;
+    border-left: 1px solid #fff;
+    border-radius: 0;
+    border-right: 1px solid #fff;
+    border-top: 1px solid #fff;
+    color: #000;
+    padding: 10px 0;
+	font-size: 14px;
+}
+
+.login-part-all {
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 40px 65px;
+    width: 51%;
+}
+
+
+.remove-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+.forgate-password {
+    padding-bottom: 30px;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.forgate-password a {
+    color: #7b7670;
+    font-size: 14px;
+}
+
+.form-sty-element-login-submit input {
+    background-color: #4f332f;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 18px;
+    width: 67%;
+}
+
+
+.logo-login {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.form-sty-element-login-submit {
+    text-align: center;
+}
+
+
+
+
+
+/* ============== login part end ================== */

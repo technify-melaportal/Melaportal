@@ -1,0 +1,43 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+	<persistence-unit name="MyPersistenceUnit"  transaction-type="RESOURCE_LOCAL">
+		<!-- <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
+		 <provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<!-- <class>com.blueriver.model.Customer</class>
+		<class>com.blueriver.model.Order</class>
+		<class>com.blueriver.model.OrderItem</class>
+		<class>com.blueriver.model.Product</class>-->
+		<!-- <properties>
+         <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+         <property name="eclipselink.jdbc.url" value="jdbc:postgresql://ec2-54-163-250-41.compute-1.amazonaws.com:5432/d3p3ujm7e4oeem?username=jossxmvnuottnc&amp;password=RX6peJbvjC6p0amMP8ewgPjnuc&amp;"/>
+         <property name="eclipselink.jdbc.user" value="jossxmvnuottnc"/>
+         <property name="eclipselink.jdbc.password" value="RX6peJbvjC6p0amMP8ewgPjnuc"/>
+         <property name="eclipselink.logging.level" value="FINE"/>
+         <property name="eclipselink.ddl-generation" value="create-tables"/>-->
+         
+        <!--  <properties>
+           <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+         <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/beerrun"/>
+         <property name="eclipselink.jdbc.user" value="reportopcenter"/>
+         <property name="eclipselink.jdbc.password" value="technify"/>
+         <property name="eclipselink.logging.level" value="FINE"/>
+         <property name="eclipselink.ddl-generation" value="update"/>
+          </properties>-->
+          <properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://192.168.1.178:3306/beerrun" />
+			<property name="hibernate.connection.username" value="reportopcenter" />
+			<property name="hibernate.connection.password" value="technify" />
+			 <property name="hibernate.show_sql" value="true"/> 
+			<property name="hibernate.flushMode" value="FLUSH_AUTO" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+         
+		
+	</persistence-unit>
+</persistence>

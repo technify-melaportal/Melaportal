@@ -1,0 +1,50 @@
+
+.closebtn:after {
+    content: "×";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font: 20px/30px Arial,Helvetica Neue,Helvetica,sans-serif;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    border-radius: 50%;
+    border-width: 0;
+    background: #666;
+    transition: background .25s;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.closebtnedit:after {
+    content: "×";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font: 20px/30px Arial,Helvetica Neue,Helvetica,sans-serif;
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+    border-radius: 50%;
+    border-width: 0;
+    background: #666;
+    transition: background .25s;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.text-align { 
+    text-align: right; 
+}
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+

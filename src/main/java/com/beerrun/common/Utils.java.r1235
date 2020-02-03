@@ -1,0 +1,659 @@
+package com.beerrun.common;
+
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.SimpleTimeZone;
+import java.util.Vector;
+
+import org.joda.time.LocalDate;
+
+public class Utils {
+
+	public static short STRING_VAL = 0;
+	public static short CURRENCY = 2;
+
+	public static String RoundUp(Double qty) {
+		BigDecimal bdTest = new BigDecimal(qty);
+		bdTest = bdTest.setScale(0, BigDecimal.ROUND_UP);
+		String value=""+bdTest;
+		return value;
+	}
+	public static boolean valid_date1(String inputdate)//yyyy-mm-dd  using tax tab
+	{
+		boolean f=true;
+	 try
+	 {
+		 LocalDate date = LocalDate.parse(inputdate);	
+//		 System.out.println("date==>"+date);
+		 f=true;
+		 
+	 }
+	 catch(Exception e)
+	 {
+//		 System.out.println("ee==>");
+		 f=false;
+	 }
+	return f;
+	 
+	}
+	public static String valid_date(String inputdate)//yyyy-mm-dd 
+	{
+		String f="";
+		if(valid_date1(inputdate))
+		{
+			f=inputdate;
+		}
+		else
+		{
+			
+			String yymm=inputdate.substring(0,8)+"01";
+			System.out.println(yymm);
+			LocalDate d1=new LocalDate(yymm);
+//			System.err.println("Today is ==>"+d1);
+//			System.err.println("Start is ==>"+ d1.dayOfMonth().withMinimumValue());
+//			System.err.println("End is ==>"+d1.dayOfMonth().withMaximumValue());
+			
+			f=d1.dayOfMonth().withMaximumValue()+"";
+		}
+		
+	return f;
+	 
+}
+
+	public static String gettime() // getting time id value
+	{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+		Calendar cal = Calendar.getInstance(new SimpleTimeZone(0, "GMT"));
+		format.setCalendar(cal);
+		java.util.Date current_date=new java.util.Date();
+		String logdate = "";
+		String logtime = "";
+		SimpleDateFormat sdfdate = new SimpleDateFormat("MMddyyyy");
+		logdate = sdfdate.format(current_date);
+		SimpleDateFormat sdftime = new SimpleDateFormat("HHmmssSSS");
+		logtime = sdftime.format(current_date);
+		return ""+logdate+logtime.trim();
+	}
+	
+	
+	public static String ReplaceTheString(String tempdata) // 3.6
+	{
+		
+		String data = "";
+		if (tempdata == null) {
+			data = "";
+		} else {
+			if (tempdata.trim().equalsIgnoreCase("")) {
+				data = "";
+			} else {
+				
+				data = tempdata;
+				tempdata = tempdata.trim();
+				data = tempdata.replaceAll("'", "\\\\'");
+				data = data.replaceAll("&&&", "0");
+			}
+		}
+		
+		return data;
+	}
+	public static String getdatetime() // getting time id value
+	{
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+		Calendar cal = Calendar.getInstance(new SimpleTimeZone(0, "GMT"));
+		format.setCalendar(cal);
+		java.util.Date current_date=new java.util.Date();
+		String logdate = "";
+		String logtime = "";
+		SimpleDateFormat sdfdate = new SimpleDateFormat("MM/dd/yyyy");
+		logdate = sdfdate.format(current_date);
+		SimpleDateFormat sdftime = new SimpleDateFormat("HH:mm:ss SSS");
+		logtime = sdftime.format(current_date);
+		return ""+logdate+logtime.trim();
+	}
+	
+	public static String getcurrenttime() // getting current time
+	{
+		java.util.Date current_date=new java.util.Date();
+		String logtime = "";
+		SimpleDateFormat sdftime = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+		logtime = sdftime.format(current_date);
+		return ""+logtime.trim();
+	}
+
+	public static String getDecimal0digits(String strqty)
+	{
+		DecimalFormat df = new DecimalFormat("#");
+		String decimal ="";
+		try {
+
+			if(strqty.equals(""))
+			{
+				decimal = "0";
+			}
+			else
+			{
+				decimal =df.format(Float.parseFloat(strqty));
+			}
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		//System.err.println("convert"+convert);
+		return decimal;
+	}
+	
+	
+	public static String validateandreplace(String aposstring) {
+//		String replacedstring = null;
+
+		try {
+
+			if (aposstring == null)
+				aposstring = "";
+			else
+			{
+				aposstring = aposstring.replaceAll("&", "&amp;");
+				aposstring= aposstring.replaceAll("'","&apos;");
+//				aposstring=aposstring.replaceAll("\"", "&apos;");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+		return aposstring;
+	}
+	public static String getDecimal5digits(String strqty)
+	{
+		DecimalFormat df = new DecimalFormat("#.#####");
+		String decimal ="";
+		try {
+			
+			decimal =df.format(Float.parseFloat(strqty));
+			
+			
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		//System.err.println("convert"+convert);
+		return decimal;
+	}
+	public static String toRound(Double qty_original) {
+
+		String temp = qty_original.toString();
+		String str_qtyingallons = "";
+		try {
+			if (temp != null) {
+				DecimalFormat decformat = new DecimalFormat("0.00");
+				str_qtyingallons = decformat.format(qty_original);
+			} else
+				str_qtyingallons = "0.0";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return str_qtyingallons;
+	}
+
+
+
+	public static String getmonth() {
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+		Calendar cal = Calendar.getInstance(new SimpleTimeZone(0, "GMT"));
+		format.setCalendar(cal);
+		java.util.Date current_date=new java.util.Date();
+		String logdate = "";
+		String logtime = "";
+		SimpleDateFormat sdfdate = new SimpleDateFormat("MM");
+		logdate = sdfdate.format(current_date);
+
+		return logdate;
+
+
+
+	}
+
+	public static Date ToSqlDate(String value) {
+
+		try {
+			Date date=new SimpleDateFormat("MM/dd/yyyy").parse(value);
+
+			return date;
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return null;
+	}
+
+	public static java.sql.Date CurrentSqlDate() {
+
+		try {
+			Calendar cl=Calendar.getInstance();
+
+			return new java.sql.Date(cl.getTime().getTime());
+		}catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return null;
+	}
+
+
+
+	public static String dateAdd(String inputdate,int days)
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
+		Calendar c = Calendar.getInstance();
+		try{
+			//Setting the date to the given date
+			System.out.println();
+			c.setTime(sdf.parse(inputdate));
+		
+
+		//Number of Days to add
+		c.add(Calendar.DAY_OF_MONTH, days);  
+		//Date after adding the days to the given date
+		String newDate = sdf.format(c.getTime());  
+		return newDate;
+		}catch(ParseException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	public static String dateAddUsaFormat(String inputdate,int days)
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Calendar c = Calendar.getInstance();
+		try{
+			//Setting the date to the given date
+			System.out.println();
+			c.setTime(sdf.parse(inputdate));
+		
+
+		//Number of Days to add
+		c.add(Calendar.DAY_OF_MONTH, days);  
+		//Date after adding the days to the given date
+		String newDate = sdf.format(c.getTime());  
+		return newDate;
+		}catch(ParseException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+
+	public static String removeNull(String txt, short type) {
+		String nullString = "";
+		if (txt != null) {
+			return txt;
+		} else {
+			if (type == STRING_VAL)
+				return nullString;
+			else if (type == CURRENCY)
+				return "0.00";
+			else
+				return "0";
+		}
+	}
+
+	public static String removeNull(Object txt) // 3.1
+	{
+		String nullString = "";
+		if (txt != null) {
+			return txt.toString();
+		} else
+			return nullString;
+	}
+
+	public static String removeNull(String txt) // 3.1
+	{
+		String nullString = "";
+		if (txt != null) {
+			return txt;
+		} else
+			return nullString;
+	}
+
+	public static Vector<String> vectorToList(List objectList){
+		Vector<String> vct_value=new Vector<String>();
+
+		Iterator it = objectList.iterator();
+
+		while(it.hasNext())
+		{
+			Object row[] = (Object[])it.next();
+			for(int i=0;i<row.length;i++) {
+				if(row[i]==null)
+					vct_value.add("");
+				else
+					vct_value.add(row[i].toString());
+			}
+		}
+
+
+		return vct_value;
+	}
+
+	public static Vector<String> vectorMultirow(List objectList){
+		Vector vct_valuemain=new Vector();
+		Vector vct_value=null;
+
+		Iterator it = objectList.iterator();
+		while(it.hasNext())
+		{
+			vct_value=new Vector();
+			Object row[] = (Object[])it.next();
+			for(int i=0;i<row.length;i++) {
+				if(row[i]==null)
+					vct_value.add("");
+				else
+					vct_value.add(row[i].toString());
+
+			}
+			vct_valuemain.add(vct_value);
+		}
+
+		return vct_valuemain;
+	}
+
+	// To format the currency
+	public static String formatCurrency(String strAmount) // 3.3
+	{
+		NumberFormat amount = null;
+		try {
+			if (strAmount == null) {
+				strAmount = "0";
+			} else if (strAmount.equalsIgnoreCase("")) {
+				strAmount = "0";
+			}
+			amount = NumberFormat.getCurrencyInstance(Locale.US);
+			String returnstring = amount.format(new Double(strAmount)
+					.doubleValue());
+			if (returnstring.indexOf("(") == 0) {
+				returnstring = "-"
+						+ returnstring.substring(1, returnstring.length() - 1);
+			}
+			return returnstring;
+		} catch (Exception e) {
+			amount = NumberFormat.getCurrencyInstance(Locale.US);
+
+			String returnstring = amount.format(new Double("0").doubleValue());
+			if (returnstring.indexOf("(") == 0) {
+				returnstring = "-"
+						+ returnstring.substring(1, returnstring.length() - 1);
+			}
+			return returnstring;
+		}
+	}
+
+	public static String toSqlDate(String dateMask, String dateValue,
+			String requireddatemask) // 1.6
+	{
+		//			System.err.println("dateValue===>"+dateValue);
+		String dateString = null;
+		int MaskChoice = 0;
+		String month, date, year;
+
+		if (dateMask.equals("mm/dd/yyyy"))
+			MaskChoice = 1;
+		if (dateMask.equals("dd/mm/yyyy"))
+			MaskChoice = 2;
+		if (dateMask.equals("yyyy/mm/dd"))
+			MaskChoice = 3;
+		if (dateMask.equals("mm/dd/yy"))
+			MaskChoice = 4;
+		if (dateMask.equals("dd/mm/yy"))
+			MaskChoice = 5;
+		
+		
+
+		if (dateMask.equals("mm-dd-yyyy"))
+			MaskChoice = 1;
+		if (dateMask.equals("dd-mm-yyyy"))
+			MaskChoice = 2;
+		if (dateMask.equals("yyyy-mm-dd") || dateMask.equals("yyyy-MM-dd"))
+			MaskChoice = 3;
+		if (dateMask.equals("mm-dd-yy"))
+			MaskChoice = 4;
+		if (dateMask.equals("dd-mm-yy"))
+			MaskChoice = 5;
+		
+	
+		
+		System.out.println("MaskChoice="+MaskChoice);
+		switch (MaskChoice) {
+		case 1: // returing date in the format mm-dd-yyyy
+			month = dateValue.substring(0, 2);
+			date = dateValue.substring(3, 5);
+			year = dateValue.substring(6, 10);
+
+			if (requireddatemask.equals("yyyy-mm-dd")) {
+				dateString = year + "-" + month + "-" + date;
+			}
+			if (requireddatemask.equals("mm-dd-yyyy")) {
+				dateString = month + "-" + date + "-" + year;
+			}
+			if (requireddatemask.equals("mm/dd/yyyy")) {
+				dateString = month + "/" + date + "/" + year;
+			}
+			break;
+		case 2: // dd-mm-yyyy
+			date = dateValue.substring(0, 2);
+			month = dateValue.substring(3, 5);
+			year = dateValue.substring(6, 10);
+
+			if (requireddatemask.equals("yyyy-mm-dd")) {
+				dateString = year + "-" + month + "-" + date;
+			}
+			if (requireddatemask.equals("mm-dd-yyyy")) {
+				dateString = month + "-" + date + "-" + year;
+			}
+			if (requireddatemask.equals("mm/dd/yyyy")) {
+				dateString = month + "/" + date + "/" + year;
+			}
+			break;
+		case 3:// returing date in the format yyyy-mm-dd
+			year = dateValue.substring(0, 4);
+			month = dateValue.substring(5, 7);
+			date = dateValue.substring(8, 10);
+
+			if (requireddatemask.equals("yyyy-mm-dd")) {
+				dateString = year + "-" + month + "-" + date;
+			}
+			if (requireddatemask.equals("mm-dd-yyyy")) {
+				dateString = month + "-" + date + "-" + year;
+			}
+			if (requireddatemask.equals("mm/dd/yyyy")) {
+				dateString = month + "/" + date + "/" + year;
+			}
+			if (requireddatemask.equals("MM/dd/yyyy")) {
+				dateString = month + "/" + date + "/" + year;
+			}
+			if(requireddatemask.equals("dd-mm-yyyy"))
+			{
+				dateString = date + "-" + month + "-" + year;
+			}
+			break;
+		case 4:// returing date in the format mm/dd/yy
+			month = dateValue.substring(0, 2);
+			date = dateValue.substring(3, 5);
+			year = dateValue.substring(6, 8);
+
+			if (requireddatemask.equals("yyyy-mm-dd")) {
+				dateString = "20" + year + "-" + month + "-" + date;
+			}
+			if (requireddatemask.equals("mm-dd-yyyy")) {
+				dateString = month + "-" + date + "-20" + year;
+			}
+			if (requireddatemask.equals("mm/dd/yyyy")) {
+				dateString = month + "/" + date + "/" + year;
+			}
+			break;
+
+		case 5:// returing date in the format dd/mm/yy
+			date = dateValue.substring(0, 2);
+			month = dateValue.substring(3, 5);
+			year = dateValue.substring(6, 8);
+
+			if (requireddatemask.equals("yyyy-mm-dd")) {
+				dateString = "20" + year + "-" + month + "-" + date;
+			}
+			if (requireddatemask.equals("mm-dd-yyyy")) {
+				dateString = month + "-" + date + "-20" + year;
+			}
+			if (requireddatemask.equals("mm/dd/yyyy")) {
+				dateString = month + "/" + date + "/" + year;
+			}
+			break;
+			
+		
+		}
+		
+		
+		
+		//			System.err.println("dateString====>"+dateString);
+		return dateString;
+	}
+
+	// To get the due date
+	public static String setDueDate(String incomedate, int interval) // 1.7
+	{
+		String date = "";
+		// Date todayDate = new Date();
+		DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		// strDate = sdf.format(todayDate);
+
+		Date parsedDate = null;
+		if (!incomedate.equalsIgnoreCase("")) {
+			try {
+				parsedDate = sdf.parse(incomedate);
+				// dayname = parsedDate.toString().substring(0,4).trim();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (parsedDate != null) {
+			Calendar now = Calendar.getInstance();
+			now.setTime(parsedDate);
+			now.add(Calendar.DAY_OF_MONTH, interval);
+
+			date = new SimpleDateFormat("MM/dd/yyyy").format(now.getTime());
+		}
+		return date;
+	}
+
+	public static String toClientDate(Date incomingdate) {
+
+		String returndate = "";
+		try {
+
+			if (incomingdate != null) {
+				DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
+				returndate = dateformat.format(incomingdate);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+		return returndate;
+	}
+
+	public static String getCurrentDate() {
+		String currenttime=new SimpleDateFormat("mm-dd-yyyy").format(Calendar.getInstance().getTime());
+
+		return currenttime;
+	}
+
+	public static String getCurrentTime() {
+		return new SimpleDateFormat("hh:mm:ss").format(Calendar.getInstance().getTime());
+	}
+
+	public static String getTimeDifference(String startDate, String  endDate)  throws ParseException{
+
+		if(startDate!=null && endDate!=null) {
+
+			SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+			java.util.Date date1 = format.parse(startDate);
+			Date date2 = format.parse(endDate);
+			long difference = date2.getTime() - date1.getTime();
+			long diffSeconds = difference / 1000;         
+			long diffMinutes = difference / (60 * 1000);         
+			long diffHours = difference / (60 * 60 * 1000); 
+			return (diffHours+":"+diffMinutes+":"+diffSeconds).replace("-","");
+		}
+
+		return null;
+	}
+	
+	public static String refno_group(String a) {
+		String b=""; 
+		try{
+			
+        char ch=a.substring(a.length()-1).charAt(0);
+    
+        if(ch=='-')
+        {
+        	
+        	 a = a.substring(0, a.length()-1);
+        }
+        else
+        {
+        	
+	        if((ch>='a' && ch<='z') || (ch>='A' && ch<='Z'))
+	        {
+	          a = a + "-1";
+	          
+	        }
+	        else
+	        {
+	        	
+	        		if(a.contains("-"))
+	        		{
+	        			
+	        			b=a.substring(a.length()-2);
+	        			if(b.contains("-"))
+	        			b=b.substring(b.length()-1);
+	        			
+	        			b= Integer.parseInt(b) + Integer.parseInt("1")+"";
+	        			 
+	        			 a = a.substring(0, a.length()-1);
+	        			 
+	//        			a= a.replace((char)a.length()-1, b);
+	        			a=a + b;
+	        		}
+	        		else
+	        		{
+	        			System.out.println("5");
+	        			a=a +"-1";
+	        		}
+	
+	        }
+        }
+       
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return a;
+	}
+
+}
