@@ -19,7 +19,6 @@
                                 <div class="float-right">
                                     <ol class="breadcrumb">
                                     <ul><a id="excelExport" onclick="exportTableToExcel('datatable', 'Users_List',[5,6])" style="margin: 10px;font-weight: bold;" href="#">Download Xls</a></ul>
-                                      <ul><a onclick="addPopup()" style="margin: 5px;font-weight: bold;" href="#">Confirm</a></ul>
                                       
                            
                                     </ol>
