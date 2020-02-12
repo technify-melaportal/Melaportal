@@ -45,7 +45,7 @@
                                                 <span class="auth-form-icon">
                                                     <i class="dripicons-user"></i> 
                                                 </span>                                                                                                              
-                                                <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter username" autocomplete="off">
+                                                <input type="text" class="form-control" id="userName" name="userName" placeholder="Enter Username" autocomplete="off">
                                             </div>                                    
                                         </div><!--end form-group--> 
             
@@ -55,7 +55,7 @@
                                                 <span class="auth-form-icon">
                                                     <i class="dripicons-lock"></i> 
                                                 </span>                                                       
-                                                <input type="password" class="form-control" id="userpassword" name="password" placeholder="Enter password">
+                                                <input type="password" class="form-control" id="userpassword" name="password" placeholder="Enter Password">
                                             </div>                               
                                         </div><!--end form-group--> 
             <!-- 

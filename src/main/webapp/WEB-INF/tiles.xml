@@ -50,6 +50,12 @@
 		<put-attribute name="body" value="/WEB-INF/pages/aboutus/company.jsp" />
 	</definition>
 	
+	<!-- companyform Page -->
+   <definition name="companyform" extends="menu-definition">
+		<put-attribute name="title" value="Mela Portal" />
+		<put-attribute name="body" value="/WEB-INF/pages/aboutus/companyform.jsp" />
+	</definition>
+	
 	<!-- cofounder Page -->
    <definition name="cofounder" extends="menu-definition">
 		<put-attribute name="title" value="Mela Portal" />

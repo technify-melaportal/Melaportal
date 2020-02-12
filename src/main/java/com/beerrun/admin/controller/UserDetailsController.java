@@ -160,9 +160,9 @@ public class UserDetailsController {
 			userDetails.setTablePageValues1("[10, 25, 50, 100, 'All']");
 			userDetails.setName(userDetails.getFirstName()+" "+userDetails.getLastName());
 			
-			if(!masthead.getCompanyName().equalsIgnoreCase("")) {
-				userDetails.setCompanyName(masthead.getCompanyName());
-				System.out.println("Inside company---- :"+masthead.getCompanyName());
+			if(!masthead.getName().equalsIgnoreCase("")) {
+				userDetails.setCompanyName(masthead.getName());
+				System.out.println("Inside company---- :"+masthead.getName());
 			}
 			else {
 				userDetails.setCompanyName("Demo Brewing...");
@@ -181,10 +181,10 @@ public class UserDetailsController {
 			String subject="Welcome to AirOpcenter";
 			String name=userDetails.getName();
 			
-			System.out.println("The company name :"+masthead.getCompanyName());
-			if(!masthead.getCompanyName().equalsIgnoreCase("")) {
-				companyname=masthead.getCompanyName();
-				System.out.println("Inside company---- :"+masthead.getCompanyName());
+			System.out.println("The company name :"+masthead.getName());
+			if(!masthead.getName().equalsIgnoreCase("")) {
+				companyname=masthead.getName();
+				System.out.println("Inside company---- :"+masthead.getName());
 			}
 			else {
 				companyname="AirOpcenter...";

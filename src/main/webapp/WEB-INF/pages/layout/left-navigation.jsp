@@ -16,7 +16,7 @@
                         </a>
                         
                         <a href="#MetricaJobs" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title="" data-original-title="Interns" id="interns">
-                        	<img alt="" src="<%=request.getContextPath()%>/static/images/internship26white.png">                          
+                        	<img alt="" src="<%=request.getContextPath()%>/static/images/interns26white.png">                          
                         </a>
                 
                     </nav><!--end nav-->
@@ -30,9 +30,9 @@
                             </div>
                             <ul class="nav">
                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/company" id="company"><img src="<%=request.getContextPath()%>/static/assets/images/startup18gray.png" id="img-company" style="margin: 5px;"> Company</a></li>   <!-- <i class="dripicons-view-thumb"></i> -->
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/cofounder"><img src="<%=request.getContextPath()%>/static/assets/images/cofounders18gray.png" id="img-cofounder" style="margin: 5px;"> Co-founders</a></li>        <!--  <i class="dripicons-user-id"></i> -->
-                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/internships"><img src="<%=request.getContextPath()%>/static/assets/images/interns18gray.png" id="img-interns" style="margin: 5px;"> Internships</a></li> 
-                                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/scorecard"><img src="<%=request.getContextPath()%>/static/assets/images/scorecard18gray.png" id="img-scorecard" style="margin: 5px;"> Scorecard</a></li> 
+                                <%-- <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/cofounder"><img src="<%=request.getContextPath()%>/static/assets/images/cofounders18gray.png" id="img-cofounder" style="margin: 5px;"> Co-founders</a></li>  --%>       <!--  <i class="dripicons-user-id"></i> -->
+                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/internships"><img src="<%=request.getContextPath()%>/static/assets/images/internship18gray.png" id="img-interns" style="margin: 5px;"> Internships</a></li> 
+                                 <%--  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/aboutUs/scorecard"><img src="<%=request.getContextPath()%>/static/assets/images/scorecard18gray.png" id="img-scorecard" style="margin: 5px;"> Scorecard</a></li>  --%>
                             </ul>
                         </div>
                         <div id="MetricaJobs" class="main-icon-menu-pane">
@@ -40,14 +40,14 @@
                                 <h6 class="menu-title">Interns</h6>       
                             </div>
                             <ul class="nav">
-                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/search"><img src="<%=request.getContextPath()%>/static/assets/images/search18gray.png" id="img-search" style="margin: 5px;">  Search</a></li><!-- <i class="dripicons-meter"></i> -->
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/shortlist"><img src="<%=request.getContextPath()%>/static/assets/images/shortlist18gray.png" id="img-shortlist" style="margin: 5px;">  Shortlist</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/search"><img src="<%=request.getContextPath()%>/static/assets/images/search18gray.png" id="img-search" style="margin: 5px;">  Directory</a></li><!-- <i class="dripicons-meter"></i> -->
+                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/shortlist"><img src="<%=request.getContextPath()%>/static/assets/images/shortlist18gray.png" id="img-shortlist" style="margin: 5px;">  Shortlisted</a></li>
                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/invited"><img src="<%=request.getContextPath()%>/static/assets/images/Invited18gray.png" id="img-invited" style="margin: 5px;">   Invited</a></li><!-- <i class="dripicons-user-group"></i> -->
                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/applications"><img src="<%=request.getContextPath()%>/static/assets/images/next18gray.png" id="img-application" style="margin: 5px;"> Applications</a></li>  
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/schedule"><img src="<%=request.getContextPath()%>/static/assets/images/schedule18gray.png" id="img-schedule" style="margin: 5px;">  Schedule</a></li> <!-- <i class="dripicons-document"></i> -->
+                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/schedule"><img src="<%=request.getContextPath()%>/static/assets/images/schedule18gray.png" id="img-schedule" style="margin: 5px;">  Scheduled</a></li> <!-- <i class="dripicons-document"></i> -->
                                 <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/interviewing"><img src="<%=request.getContextPath()%>/static/assets/images/interview18gray.png" id="img-interview" style="margin: 5px;">  Interviewing</a></li>
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/decision"><img src="<%=request.getContextPath()%>/static/assets/images/decision18gray.png" id="img-decision" style="margin: 5px;">  Decision</a></li>
-                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/accepted"><img src="<%=request.getContextPath()%>/static/assets/images/accepted18gray.png" id="img-accepted" style="margin: 5px;">  Accepted</a></li>
+                               <%--  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/decision"><img src="<%=request.getContextPath()%>/static/assets/images/decision18gray.png" id="img-decision" style="margin: 5px;">  Decision</a></li>
+                                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/interns/accepted"><img src="<%=request.getContextPath()%>/static/assets/images/accepted18gray.png" id="img-accepted" style="margin: 5px;">  Accepted</a></li> --%>
                             </ul>
                         </div><!-- end Forecast -->                    
                         

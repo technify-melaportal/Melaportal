@@ -24,15 +24,15 @@ public class MastheadDaoImpl extends AbstractDao<Integer, Masthead> implements M
 		return masthead;
 	}
 	@Override
-	public void save(Masthead masthead) {
-		persist(masthead);
+	public Masthead saveMasthead(Masthead masthead) {
+		save(masthead);
+		return masthead;
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
 	public Masthead getMasthead() {
-		Criteria criteria = createEntityCriteria()
-		.add(Restrictions.eq("type","Company"));
+		Criteria criteria = createEntityCriteria();
 		List<Masthead> masthead = (List<Masthead>) criteria.list();
 		return masthead.isEmpty()?null:masthead.get(0);	
 	}

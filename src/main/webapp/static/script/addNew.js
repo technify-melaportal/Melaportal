@@ -1,72 +1,72 @@
 
-//comment start
+//skills start
 
 //var path = ('#path').val();
 var path = $("#path").val();
-function new_comment(){
+function new_skills(){
 	var result = true;
-	var name=$("#addnew_comment").val();
-	$("#comment option").each(function(){
-		if($("#comment option[value='"+$(this).val()+"']").text().toLowerCase() == name.toLowerCase()){
+	var name=$("#addnew_skills").val();
+	$("#skills option").each(function(){
+		if($("#skills option[value='"+$(this).val()+"']").text().toLowerCase() == name.toLowerCase()){
 			result = false;
 		}
 	})
 	if(name != '' && result){
 		$.ajax({
 	       type: "get",
-	       url: path+"/view/addNewComment",
+	       url: path+"/aboutUs/addNewSkills",
 	       data : {req:name},
 	       dataType:"text",
 	        async:false,
 	       success: function(response){
-	       	var $select = $('#addnew_comment'); 
-	       	$(".add-options-comment").hide();        	 
-	       	loadComment()
+	       	var $select = $('#addnew_skills'); 
+	       	$(".add-options-skills").hide();        	 
+	       	loadskills()
 	       
 	       }
 		});
 	}else{
 		if(!result){
-			$("#alert_comment").show();
-			$("#addNewAlert_comment").html(""+name+" Already Exist !!!");
+			$("#alert_skills").show();
+			$("#addNewAlert_skills").html(""+name+" Already Exist !!!");
 		}else{
-			$("#alert_comment").show();
-			$("#addNewAlert_comment").html("Please Enter New Comment to Add !!!");
+			$("#alert_skills").show();
+			$("#addNewAlert_skills").html("Please Enter New Skill to Add !!!");
 		}
 	}
 }
 
-function loadComment(){
+function loadskills(){
 	  $("#errorSig").hide();
 	 $.ajax({
        type: "get",
-       url: path+"/view/getCommentList",
+       url: path+"/aboutUs/getSkillsList",
        dataType:"json",
        async:false,
        success: function(response){ 
     	  
-       	 var $select = $('#comment'); 
+       	 var $select = $('#skills'); 
        	 $select.find('option').remove();     
        	  $.each(response, function(key, value) {        
                $select.append($('<option>').text(value).attr('value', key));
              });
        	$select.append($('<option>').text('Add New'));
-       	var name=$("#addnew_comment").val();  
-       	$('#comment').val($("#comment option:contains("+name+")").val());
-       	$("#addnew_comment").val("");
-       	$(".action-comment").show();
-       	$("#alert_comment").hide();
+       	var name=$("#addnew_skills").val();  
+       	$('#skills').val($("#skills option:contains("+name+")").val());
+       	$("#addnew_skills").val("");
+       	$(".action-skills").show();
+       	$("#alert_skills").hide();
        }
 	 });	 
 }
 
-function addcomment(){
+function addskills(){
 	
-	var name=$("#comment option:selected").text();
+	var name=$("#skills option:selected").text();
 	if(name == 'Add New'){
-		$(".add-options-comment").show();
-		$(".action-comment").hide();
-		$("#addnew_comment").focus();
+		$(".add-options-skills").show();
+		$(".action-skills").hide();
+		$("#addnew_skills").focus();
 	}
 }
 
@@ -74,24 +74,24 @@ $(document).ready(function() {
 	
 	$(".msgg").fadeOut(5000);
 	
-	$(".add-options-comment").hide();
-	$("#alert_comment").hide();
-	$("#add-newcomment").click(function(){
+	$(".add-options-skills").hide();
+	$("#alert_skills").hide();
+	$("#add-newskills").click(function(){
 		
-		$(".add-options-comment").show();
-		$(".action-comment").hide();
-		$("#addnew_comment").focus();
+		$(".add-options-skills").show();
+		$(".action-skills").hide();
+		$("#addnew_skills").focus();
 	})
-	$("#cancel_comment").click(function(){
-		$(".add-options-comment").hide();
-		$(".action-comment").show();
-		$("#alert_comment").hide();
+	$("#cancel_skills").click(function(){
+		$(".add-options-skills").hide();
+		$(".action-skills").show();
+		$("#alert_skills").hide();
 	})
 	
-	 $("#cancel_comment").click(function() {
-	        $("#addnew_comment").val("");
+	 $("#cancel_skills").click(function() {
+	        $("#addnew_skills").val("");
 	    });
 	     
 });
 
-//comment end
+//skills end

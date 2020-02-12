@@ -22,31 +22,36 @@ public class MastheadServiceImpl implements MastheadService{
 		return mastheadDao.getId(companyid);
 	}
 
-	public void save(Masthead masthead) {
-		mastheadDao.save(masthead);
+	public Masthead save(Masthead masthead) {
+		return mastheadDao.saveMasthead(masthead);
 	}
 
 	public Masthead getMasthead() {
 		return mastheadDao.getMasthead();
 	}
 	
-	public void updateMasthead(Masthead masthead) {
+	public Masthead updateMasthead(Masthead masthead) {
 		Masthead entity = mastheadDao.getId(masthead.getCompanyid());
 		if(entity!=null){
-			entity.setRefName(masthead.getRefName());
-			entity.setCompanyName(masthead.getCompanyName());
-			entity.setAdd1(masthead.getAdd1());
-			entity.setAdd2(masthead.getAdd2());
+			entity.setName(masthead.getName());
+			entity.setShortname(masthead.getShortname());
+			entity.setUrl(masthead.getUrl());
+			entity.setLinkedin(masthead.getLinkedin());
+			entity.setDescription(masthead.getDescription());
+			entity.setAddress(masthead.getAddress());
 			entity.setCity(masthead.getCity());
 			entity.setState(masthead.getState());
-			entity.setZip(masthead.getZip());
-			entity.setPhone(masthead.getPhone());
-			entity.setEmail(masthead.getEmail());
-			entity.setWebsite(masthead.getWebsite());
-			entity.setLicenseNo(masthead.getLicenseNo());
-			System.out.println("country id---"+masthead.getCountryId());
-			
+			entity.setPincode(masthead.getPincode());
+			entity.setCeoname(masthead.getCeoname());
+			entity.setCeolinkedin(masthead.getCeolinkedin());
+			entity.setCofoundername(masthead.getCofoundername());
+			entity.setCofounderlinkedin(masthead.getCofounderlinkedin());
+			//entity.setBusinesscard1(masthead.getBusinesscard1());
+			//entity.setBusinesscard2(masthead.getBusinesscard2());
+			//entity.setCompanylogo(masthead.getCompanylogo());
 		}
+		
+		return entity;
 	}
 	
 	public List<Masthead> getWarehouse(){
@@ -57,5 +62,21 @@ public class MastheadServiceImpl implements MastheadService{
 	public Masthead getwarehouseid(int warehouseid) {
 		// TODO Auto-generated method stub
 		return mastheadDao.getwarehouseid(warehouseid);
+	}
+	
+	public void updatePath(String name, String path, String path1, String path2, int companyid) {
+		Masthead entity = mastheadDao.getId(companyid);
+		if(entity!=null){
+			entity.setBusinesscard1(path1);
+			entity.setBusinesscard2(path2);
+			entity.setCompanylogo(path);
+		}
+	}
+	
+	public void updateLogoPath(String name, String path, int companyid) {
+		Masthead entity = mastheadDao.getId(companyid);
+		if(entity!=null){
+			entity.setCompanylogo(path);
+		}
 	}
 }

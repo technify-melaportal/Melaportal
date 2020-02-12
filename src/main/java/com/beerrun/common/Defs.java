@@ -47,12 +47,12 @@ public class Defs {
 	
 	// Local Tomcat 
 	 
-		public static String rootpath_upload = "C:/Users/honor/Desktop/InternPortal/src/main/webapp/Beerrun_Documents/"; //Bala pc
+		public static String rootpath_upload = "C:/Users/honor/git/Melaportal/src/main/webapp/Beerrun_Documents/"; //Bala pc
 	 	//public static String rootpath_upload = "C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/Beerrun_Documents/"; //Bala pc
 		public static String IpAddress = "http://localhost:8080/Beerrun_Documents/"; //Local address
 		
-		public static String rootpath_upload1 = "C:/Users/honor/Desktop/InternPortal/src/main/webapp/static/assets/images/users/"; //Bala pc
-		public static String IpAddress1 = "/InternPortal/static/assets/images/users/";
+		public static String rootpath_upload1 = "C:/Users/honor/git/MelaPortal/src/main/webapp/static/assets/images/users/"; //Bala pc
+		public static String IpAddress1 = "/MelaPortal/static/assets/images/users/";
 		
 		
   public static final String vendor_notes="VendorNotes/";

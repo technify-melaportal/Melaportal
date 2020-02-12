@@ -8,15 +8,19 @@ public interface MastheadService {
 	
     Masthead getId(int companyId);
 	
-	void save(Masthead masthead);
+    Masthead save(Masthead masthead);
 	
-	void updateMasthead(Masthead masthead);
+    Masthead updateMasthead(Masthead masthead);
 	
 	Masthead getMasthead();
 	
 	List<Masthead> getWarehouse();
 
 	Masthead getwarehouseid(int warehouseid);
+	
+	public void updatePath(String name, String path, String path1, String path2, int companyid);
+	
+	public void updateLogoPath(String name, String path, int companyid);
 	
 
 }

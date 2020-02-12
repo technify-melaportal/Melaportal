@@ -9,7 +9,7 @@ public interface MastheadDao {
 	
 	Masthead getId(int companyId);
 	
-	void save(Masthead masthead);
+	Masthead saveMasthead(Masthead masthead);
 	
 	Masthead getMasthead();
 	

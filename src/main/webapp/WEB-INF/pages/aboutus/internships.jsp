@@ -18,8 +18,8 @@
                             <div class="page-title-box">
                                 <div class="float-right">
                                     <ol class="breadcrumb">
-                                     <ul><a onclick="addPopup()" style="margin: 5px;font-weight: bold;" href="#">+ Add New</a></ul>
-                                      <ul><a id="excelExport" onclick="exportTableToExcel('datatable', 'Users_List',[5,6])" style="margin: 10px;font-weight: bold;" href="#">Download Xls</a></ul>
+                                     <ul><a onclick="addPopup()" style="margin: 5px;font-weight: bold;background-color: #0F67F0;border-radius: 25px;padding: 2px" href="#"><span style="color: white">+ Add New</span></a></ul>
+                                      <ul><a id="excelExport" onclick="exportTableToExcel('datatable', 'Internship_List',[2])" style="margin: 10px;font-weight: bold;background-color: #0F67F0;border-radius: 25px;margin-right: 50px;padding: 2px" href="#"><span style="color: white">Download Xls</span></a></ul>
                                   
                                     </ol>
                                 </div>
@@ -38,10 +38,10 @@
                                             <thead class="thead-light">
                                             <tr>
                                                	<th class="text-left">Short Name</th>
-												<th class="text-left">Paid?</th>
-												<th class="text-left">Department</th>
-												<th class="text-left">Year</th>
-												<th class="text-left">Details</th>
+												<th class="text-center">Paid?</th>
+												<!-- <th class="text-left">Department</th>
+												<th class="text-left">Year</th> -->
+												<th class="text-center">Details</th>
 												<th class="text-center"># positions</th>
 												<th class="text-center"># views</th>
 												<th class="text-center"># short listed</th>
@@ -50,7 +50,18 @@
                                             </thead>
         
                                             <tbody>
+											 <c:forEach  var="list" items="${InternshipHeader}">
+											  <tr>		  
 											 
+												<td class="text-left">${list.intershipshortname}</td>
+												<td class="text-center">${list.paid}</td>
+												<td class="text-center"><a onclick="editPopup(${list.internshipid})"><i class="dripicons-preview"></i></a></td>
+												<td class="text-center"> ${list.positions}</td>
+												<td class="text-center">${list.noofviews}</td>
+												<td class="text-center">${list.noofshortlisted}</td>
+												<td class="text-center">${list.noofapplied}</td>
+											  </tr>
+											  </c:forEach>  
                                             </tbody>
                                         </table>                    
                                     </div>                                         
@@ -79,7 +90,7 @@
   	 var path = $("#path").val();
   	$("#aboutus").addClass("active");
 	$('#aboutus').click();
-	$("#img-interns").attr("src",path+"/static/assets/images/interns18Blue.png");	
+	$("#img-interns").attr("src",path+"/static/assets/images/internship18blue.png");	
   });
      
   var path = $("#path").val();   
@@ -103,7 +114,7 @@
           	             animation: 'scale',
           	             closeAnimation: 'scale',
           	             closeIcon: true,
-          	             columnClass: 'col-md-10 col-md-offset-1',
+          	             columnClass: 'col-md-8 col-md-offset-1',
           	             cancelButton: 'Cancel',
           	             cancelButtonClass: 'btn btn-danger',
           	            
@@ -113,7 +124,7 @@
  }
      
  function editPopup(id){    
-     var href = path+'/aboutUs/getEditInternship?id='+id;
+     var href = path+'/aboutUs/getViewInternship?id='+id;
      
     $.ajax({
             async: false,
@@ -126,7 +137,7 @@
 	           $.dialog({
    	             
              		  modal: true,
-         	             title: "Edit Internship",
+         	             title: "View Internship Details",
          	             content:data,
          	             draggable: true,
          	             animation: 'scale',

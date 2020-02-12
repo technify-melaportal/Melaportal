@@ -45,7 +45,7 @@
                                    
                                    <div class="row">    
                                        <div class="col-lg-12">                                                                                   
-                                            <div class="form-group row">
+                                                <div class="form-group row">
                                                 <label for="example-text-input" class="col-sm-2 col-form-label text-left">CEO Name</label>
                                                 <div class="col-sm-6">
                                                     <input class="form-control form-control-sm" type="text" id="example-text-input-lg" style="border-color: #656d9a" name="title" >
