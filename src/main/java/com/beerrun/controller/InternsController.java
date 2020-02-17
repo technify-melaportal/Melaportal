@@ -1,17 +1,26 @@
 package com.beerrun.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.beerrun.admin.service.ApplicationDetailsService;
+import com.beerrun.model.ApplicationDetails;
+import com.beerrun.model.SkillList;
 import com.beerrun.model.UserDetails;
 
 
 @Controller
 @RequestMapping("/interns")
 public class InternsController {
+	
+	@Autowired
+	private ApplicationDetailsService applicationDetailsService;
 	
 	@RequestMapping(value= {"/search"},method=RequestMethod.GET)
 	public ModelAndView search(UserDetails userDetails)
@@ -23,11 +32,14 @@ public class InternsController {
 	}
 	
 	@RequestMapping(value= {"/shortlist"},method=RequestMethod.GET)
-	public ModelAndView shortlist(UserDetails userDetails)
+	public ModelAndView shortlist(UserDetails userDetails, ModelMap model)
 	{
 		
 		ModelAndView modelAndView = null;
 		modelAndView = new ModelAndView("shortlist");
+		
+		List<ApplicationDetails> applicationList = applicationDetailsService.getApplicationDetails();
+		model.addAttribute("applicationList", applicationList);
 		
 		return  modelAndView;
 	}
