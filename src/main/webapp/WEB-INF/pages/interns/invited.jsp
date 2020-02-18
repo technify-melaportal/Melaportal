@@ -39,18 +39,32 @@
                                             <thead class="thead-light">
                                             <tr>
                                                	<th class="text-left">Name</th>
-												<th class="text-left">Collage</th>
+												<th class="text-left">College</th>
 												<th class="text-left">Year</th>
 												<th class="text-left">Department</th>
 												<th class="text-left">Internship</th>
-												<th class="text-left">Resume</th>
+												<th class="text-center">Resume</th>
+												<th class="text-center">Withdraw</th>
 												<th class="text-center">Response</th>
 												<th class="text-center">Scheduled time</th>
                                             </tr><!--end tr-->
                                             </thead>
         
                                             <tbody>
+											  <c:forEach  var="list" items="${applicationList}">
+											  <tr>		  
 											 
+												<td class="text-left">${list.studentname}</td>
+												<td class="text-left">${list.collegename}</td>
+												<td class="text-left">${list.year}</td>
+												<td class="text-left"> ${list.department}</td>
+												<td class="text-left"> ${list.intershipname}</td>
+												<td class="text-center"><a href="${list.resume}" target="_blank"><img src="<%=request.getContextPath()%>/static/assets/images/pdf18.png"></a></td>
+												<td class="text-center"><a href="${list.id}"></a></td>
+												<td class="text-center"><a href="${list.id}"><img src="<%=request.getContextPath()%>/static/assets/images/green18.png"></a></td>
+												<td class="text-center">${list.schduletime}</td>
+											  </tr>
+											  </c:forEach>  
                                             </tbody>
                                         </table>                    
                                     </div>                                         

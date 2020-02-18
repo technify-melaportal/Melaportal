@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.beerrun.common.BeerRunConstants;
 import com.beerrun.init.AbstractDao;
 import com.beerrun.model.ApplicationDetails;
 
@@ -28,9 +27,27 @@ public class ApplicationDetailsDaoImpl extends AbstractDao<Integer, ApplicationD
 	
 	@Override
 	@SuppressWarnings("unchecked")
+	public List<ApplicationDetails> getShortlistedDetails() {
+		Criteria criteria = createEntityCriteria()
+				.add(Restrictions.eq("status", 1));
+		List<ApplicationDetails> applicationDetails = (List<ApplicationDetails>) criteria.list();
+		return applicationDetails;	
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<ApplicationDetails> getInvitedDetails() {
+		Criteria criteria = createEntityCriteria()
+				.add(Restrictions.eq("status", 2));
+		List<ApplicationDetails> applicationDetails = (List<ApplicationDetails>) criteria.list();
+		return applicationDetails;	
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
 	public List<ApplicationDetails> getApplicationDetails() {
 		Criteria criteria = createEntityCriteria()
-				.add(Restrictions.eq("status", BeerRunConstants.STATUS));
+				.add(Restrictions.eq("status", 3));
 		List<ApplicationDetails> applicationDetails = (List<ApplicationDetails>) criteria.list();
 		return applicationDetails;	
 	}

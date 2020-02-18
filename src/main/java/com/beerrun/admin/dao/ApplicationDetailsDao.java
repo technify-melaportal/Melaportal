@@ -10,6 +10,10 @@ public interface ApplicationDetailsDao {
 	
 	public ApplicationDetails saveApplicationDetails(ApplicationDetails applicationDetails);
 	
+	public List<ApplicationDetails> getShortlistedDetails();
+	
+	public List<ApplicationDetails> getInvitedDetails();
+	
 	public List<ApplicationDetails> getApplicationDetails();
 
 }

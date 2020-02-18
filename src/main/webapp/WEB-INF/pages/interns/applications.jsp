@@ -39,7 +39,7 @@
                                             <thead class="thead-light">
                                             <tr>
                                                	<th class="text-left">Name</th>
-												<th class="text-left">Collage</th>
+												<th class="text-left">College</th>
 												<th class="text-left">Year</th>
 												<th class="text-left">Department</th>
 												<th class="text-left">Internship</th>
@@ -51,7 +51,20 @@
                                             </thead>
         
                                             <tbody>
+											  <c:forEach  var="list" items="${applicationList}">
+											  <tr>		  
 											 
+												<td class="text-left">${list.studentname}</td>
+												<td class="text-left">${list.collegename}</td>
+												<td class="text-left">${list.year}</td>
+												<td class="text-left"> ${list.department}</td>
+												<td class="text-left"> ${list.intershipname}</td>
+												<td class="text-center"><a href="${list.resume}" target="_blank"><img src="<%=request.getContextPath()%>/static/assets/images/pdf18.png"></a></td>
+												<td class="text-center"><a href="${list.id}"></a></td>
+												<td class="text-center"><a href="${list.id}"></a></td>
+												<td class="text-center">${list.schduletime}</td>
+											  </tr>
+											  </c:forEach>  
                                             </tbody>
                                         </table>                    
                                     </div>                                         

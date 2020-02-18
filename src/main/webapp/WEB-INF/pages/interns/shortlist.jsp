@@ -24,7 +24,7 @@
                            
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Shortlist</h4>
+                                <h4 class="page-title">Shortlisted</h4>
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
@@ -39,7 +39,7 @@
                                             <thead class="thead-light">
                                             <tr>
                                                	<th class="text-left">Name</th>
-												<th class="text-left">Collage</th>
+												<th class="text-left">College</th>
 												<th class="text-left">Year</th>
 												<th class="text-left">Department</th>
 												<th class="text-center">Resume</th>
@@ -57,8 +57,8 @@
 												<td class="text-left">${list.year}</td>
 												<td class="text-left"> ${list.department}</td>
 												<td class="text-center"><a href="${list.resume}" target="_blank"><img src="<%=request.getContextPath()%>/static/assets/images/pdf18.png"></a></td>
-												<td class="text-center">${list.id}</td>
-												<td class="text-center">${list.id}</td>
+												<td class="text-center"><a href="${list.id}"></a></td>
+												<td class="text-center"><a href="${list.id}"></a></td>
 											  </tr>
 											  </c:forEach>  
                                             </tbody>

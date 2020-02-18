@@ -24,7 +24,7 @@
                                   
                                     </ol>
                                 </div>
-                                <h4 class="page-title">Search</h4>
+                                <h4 class="page-title">Directory</h4>
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div>
@@ -39,17 +39,28 @@
                                             <thead class="thead-light">
                                             <tr>
                                                	<th class="text-left">Name</th>
-												<th class="text-left">Collage</th>
+												<th class="text-left">College</th>
 												<th class="text-left">Year</th>
 												<th class="text-left">Department</th>
-												<th class="text-left">Resume</th>
+												<th class="text-center">Resume</th>
 												<th class="text-center">Shortlist</th>
 												<th class="text-center">Hide</th>
                                             </tr><!--end tr-->
                                             </thead>
         
                                             <tbody>
+											  <c:forEach  var="list" items="${applicationList}">
+											  <tr>		  
 											 
+												<td class="text-left">${list.studentName}</td>
+												<td class="text-left">${list.collegeName}</td>
+												<td class="text-left">${list.year}</td>
+												<td class="text-left"> ${list.departmentName}</td>
+												<td class="text-center"><a href="${list.resume}" target="_blank"><img src="<%=request.getContextPath()%>/static/assets/images/pdf18.png"></a></td>
+												<td class="text-center"><a href="${list.studentid}"></a></td>
+												<td class="text-center"><a href="${list.studentid}"></a></td>
+											  </tr>
+											  </c:forEach>  
                                             </tbody>
                                         </table>                    
                                     </div>                                         

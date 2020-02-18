@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.beerrun.admin.service.ApplicationDetailsService;
 import com.beerrun.model.ApplicationDetails;
-import com.beerrun.model.SkillList;
+import com.beerrun.model.Studentheader;
 import com.beerrun.model.UserDetails;
 
 
@@ -23,22 +23,25 @@ public class InternsController {
 	private ApplicationDetailsService applicationDetailsService;
 	
 	@RequestMapping(value= {"/search"},method=RequestMethod.GET)
-	public ModelAndView search(UserDetails userDetails)
+	public ModelAndView search(ModelMap model)
 	{
 		ModelAndView modelAndView = null;
 		modelAndView = new ModelAndView("search");
+		
+		List<Studentheader> applicationList = applicationDetailsService.getStudentDetails();
+		model.addAttribute("applicationList", applicationList);
 		
 		return  modelAndView;
 	}
 	
 	@RequestMapping(value= {"/shortlist"},method=RequestMethod.GET)
-	public ModelAndView shortlist(UserDetails userDetails, ModelMap model)
+	public ModelAndView shortlist(ModelMap model)
 	{
 		
 		ModelAndView modelAndView = null;
 		modelAndView = new ModelAndView("shortlist");
 		
-		List<ApplicationDetails> applicationList = applicationDetailsService.getApplicationDetails();
+		List<ApplicationDetails> applicationList = applicationDetailsService.getShortlistedDetails();
 		model.addAttribute("applicationList", applicationList);
 		
 		return  modelAndView;
@@ -52,21 +55,28 @@ public class InternsController {
 	}
 	
 	@RequestMapping(value= {"/invited"},method=RequestMethod.GET)
-	public ModelAndView invited(UserDetails userDetails)
+	public ModelAndView invited(ModelMap model)
 	{
 		
 		ModelAndView modelAndView = null;
 		modelAndView = new ModelAndView("invited");
 		
+		List<ApplicationDetails> applicationList = applicationDetailsService.getInvitedDetails();
+		model.addAttribute("applicationList", applicationList);
+		
+		
 		return  modelAndView;
 	}
 
 	@RequestMapping(value= {"/applications"},method=RequestMethod.GET)
-	public ModelAndView applications(UserDetails userDetails)
+	public ModelAndView applications(ModelMap model)
 	{
 		
 		ModelAndView modelAndView = null;
 		modelAndView = new ModelAndView("applications");
+		
+		List<ApplicationDetails> applicationList = applicationDetailsService.getApplicationDetails();
+		model.addAttribute("applicationList", applicationList);
 		
 		return  modelAndView;
 	}
