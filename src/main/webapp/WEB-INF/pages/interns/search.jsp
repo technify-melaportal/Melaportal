@@ -57,8 +57,8 @@
 												<td class="text-left">${list.year}</td>
 												<td class="text-left"> ${list.departmentName}</td>
 												<td class="text-center"><a href="${list.resume}" target="_blank"><img src="<%=request.getContextPath()%>/static/assets/images/pdf18.png"></a></td>
-												<td class="text-center"><a href="${list.studentid}"></a></td>
-												<td class="text-center"><a href="${list.studentid}"></a></td>
+												<td class="text-center"><a href="${list.studentid}"></a><input type="checkbox" class="checkbox1" id="chk" name="check[]" value="D03" /></a></td>
+												<td class="text-center"><a href="${list.studentid}"><input type="checkbox" class="checkbox1" id="chk" name="check[]" value="D03" /></a></td>
 											  </tr>
 											  </c:forEach>  
                                             </tbody>
